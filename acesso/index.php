@@ -80,7 +80,7 @@
         $('#aguarde').show().attr('disabled', true).text('Aguarde, Processando...');
         $.ajax({
             type: 'POST',
-            url: 'proc_login.php',
+            url: 'app/model/Auth.php',
             data: $('#form-login').serialize(),
             success: function(data) {
                 $('#retorno').show().fadeOut(6000).html(data);
