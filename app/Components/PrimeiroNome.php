@@ -1,6 +1,9 @@
 <?php
-function primeiroNome($valor)
+class PrimeiroNome
 {
-    $primeiroNome = explode(" ", $valor);
-    return $primeiroNome[0];
+    function primeiroNome($valor)
+    {
+        $primeiroNome = explode(" ", $valor);
+        return $primeiroNome[0];
+    }
 }

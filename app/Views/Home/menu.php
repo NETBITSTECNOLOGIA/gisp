@@ -39,9 +39,7 @@ echo'
               echo'<li id="clientes-busca"><a href="clientes.php"><i class="fa fa-circle-o text-primary"></i>Listar</a></li>';}
             if(PermissaoCheck($idempresa,'clientes-online',$iduser)=='checked' OR $_SESSION['tipouser']=='Admin'){
             echo'<li id="clientes-online"><a href="clientes-online.php"><i class="fa fa-circle-o text-primary"></i>Online</a></li>';}
-/*
-            echo'<li id="clientes-offline"><a href="clientes-off.php"><i class="fa fa-circle-o"></i>Off-line</a></li>
-            */
+            
             echo'
             <li id="clientes-pre"><a href="clientes-pre.php"><i class="fa fa-circle-o text-primary"></i>Pré-Cadastro</a></li>
           </ul>

@@ -16,7 +16,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="public/style/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="public/style/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="public/dist/css/AdminLTE.min.css">
 
     <!-- Google Font -->
     <link rel="stylesheet"
@@ -25,17 +25,16 @@
 
 <body class="hold-transition login-page">
     <div class="login-box">
-        <div class="login-logo">
-            <b style="color:white">GISP v1.1.1</b>
-        </div>
+
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">ÁREA RESTRITA</p>
-
+            <div class="login-logo">
+                <b>ÁREA RESTRITA</b>
+            </div>
             <form class="login-form" id="form-login" method="post">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="Digite seu usuário" name="usuario" required />
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    <input type="text" class="form-control" placeholder="Digite seu e-mail" name="email" required />
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
                     <input type="password" class="form-control" placeholder="Digite sua senha" name="senha" required />
@@ -73,9 +72,9 @@
     <!-- /.login-box -->
 
     <!-- jQuery 3 -->
-    <script src="style/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="public/style/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="style/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="public/style/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
     $('#form-login').submit(function() {
         $('#aguarde').show().attr('disabled', true).text('Aguarde, Processando...');

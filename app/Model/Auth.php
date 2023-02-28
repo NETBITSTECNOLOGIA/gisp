@@ -38,7 +38,7 @@ if ($tipo == 1) {
 			$ip = $_SERVER['REMOTE_ADDR']; // pegar ip da maquina
 			$hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']); //pega nome da maquina
 
-			echo "<script>location.href='index.php';</script>";
+			echo "<script>location.href='../Views/Home/';</script>";
 		}
 	} else {
 		echo '<button class="alert alert-danger btn-block"><i class="fa fa-exclamation-triangle"></i> Usuário ou senha inválido!</button>';

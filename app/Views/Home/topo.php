@@ -2,7 +2,6 @@
 ob_start();
 session_start();
 include_once 'conexao.php';
-include_once 'funcoes.php';
 @$idempresa = $_SESSION['idempresa'];
 @$usercargo = $_SESSION['cargo'];
 @$iduser = $_SESSION['iduser'];
@@ -20,18 +19,18 @@ echo '
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <link rel="shortcut icon" href="dist/img/icon-72x72.png">
+  <link rel="shortcut icon" href="../../public/dist/img/icone.png">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../pulic/style/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../pulic/style/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../../pulic/style/bower_components/Ionicons/css/ionicons.min.css">
   <!--funcybox-->
-  <link rel="stylesheet" href="plugins/fancybox/dist/jquery.fancybox.css"/> 
+  <link rel="stylesheet" href="../../pulic/plugins/fancybox/dist/jquery.fancybox.css"/> 
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../pulic/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../pulic/dist/css/skins/_all-skins.min.css">
   <style>
   .hidden {
     display: none;
