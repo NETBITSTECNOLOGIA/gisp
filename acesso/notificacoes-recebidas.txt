@@ -1,0 +1,48 @@
+Notificação: 12-12-2022 | Número do titulo: 00012572000000133723 | Valor: 14900 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 16-12-2022 | Número do titulo: 00012572000000133723 | Valor: 14900 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 16-12-2022 | Número do titulo: 00034436831671178357 | Valor: 10 | Valor Pago:  | Código OP: 1 | Descrição: 1 - NORMAL
+Notificação: 05-01-2023 | Número do titulo: 00034436831672608707 | Valor: 105 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 05-01-2023 | Número do titulo: 00034436831672233134 | Valor: 259 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 06-01-2023 | Número do titulo: 00034436831672601918 | Valor: 55 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 06-01-2023 | Número do titulo: 00034436831672605912 | Valor: 270 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 07-01-2023 | Número do titulo: 00034436831672610511 | Valor: 105 | Valor Pago:  | Código OP: 1 | Descrição: 1 - NORMAL
+Notificação: 09-01-2023 | Número do titulo: 00034436831672610720 | Valor: 65 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 09-01-2023 | Número do titulo: 00034436831672607519 | Valor: 55 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 09-01-2023 | Número do titulo: 00034436831672613935 | Valor: 105 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 10-01-2023 | Número do titulo: 00034436831672409573 | Valor: 900 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 10-01-2023 | Número do titulo: 00034436831672610137 | Valor: 75 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 10-01-2023 | Número do titulo: 00034436831672610137 | Valor: 75 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 10-01-2023 | Número do titulo: 00034436831672615134 | Valor: 65 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 10-01-2023 | Número do titulo: 00034436831672605923 | Valor: 270 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 12-01-2023 | Número do titulo: 00034436831672615112 | Valor: 305 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 16-01-2023 | Número do titulo: 00034436831672610137 | Valor: 75.00 | Valor Pago: 70 | Código OP:  | Descrição: 
+Notificação: 16-01-2023 | Número do titulo: 00034436831672623544 | Valor: 605 | Valor Pago:  | Código OP: 1 | Descrição: 1 - NORMAL
+Notificação: 16-01-2023 | Número do titulo: 00034436831672620585 | Valor: 55 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 20-01-2023 | Número do titulo: 00034436831672603700 | Valor: 91.66 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 21-01-2023 | Número do titulo: 00034436831672625029 | Valor: 605 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 24-01-2023 07:01:05 | Número do titulo: 00034436831672625227 | Valor: 315 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 30-01-2023 18:01:08 | Número do titulo: 00034436831672599690 | Valor: 900 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 01-02-2023 02:02:54 | Número do titulo: 00034436831672599690 | Valor: 900.00 | Valor Pago: 900 | Código OP:  | Descrição: 
+Notificação: 03-02-2023 00:02:15 | Número do titulo: 00034436831672603700 | Valor: 91.66 | Valor Pago: 91.66 | Código OP:  | Descrição: 
+Notificação: 03-02-2023 04:02:06 | Número do titulo: 00034436831672615123 | Valor: 105 | Valor Pago:  | Código OP: 1 | Descrição: 1 - NORMAL
+Notificação: 04-02-2023 07:02:07 | Número do titulo: 00034436831672627757 | Valor: 55 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 06-02-2023 21:02:26 | Número do titulo: 00034436831672613947 | Valor: 105 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 07-02-2023 19:02:36 | Número do titulo: 00034436831672627757 | Valor: 55.00 | Valor Pago: 50 | Código OP:  | Descrição: 
+Notificação: 07-02-2023 19:02:36 | Número do titulo: 00034436831672601918 | Valor: 55.00 | Valor Pago: 55 | Código OP:  | Descrição: 
+Notificação: 08-02-2023 00:02:15 | Número do titulo: 00034436831672620981 | Valor: 65 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 08-02-2023 09:02:07 | Número do titulo: 00034436831672605120 | Valor: 105 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 08-02-2023 09:02:11 | Número do titulo: 00034436831672605318 | Valor: 105 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 08-02-2023 18:02:08 | Número do titulo: 00034436831672629935 | Valor: 264 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 08-02-2023 18:02:10 | Número do titulo: 00034436831672610731 | Valor: 75 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 08-02-2023 18:02:06 | Número do titulo: 00034436831672629968 | Valor: 75 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 08-02-2023 20:02:35 | Número do titulo: 00034436831672605318 | Valor: 105.00 | Valor Pago: 106 | Código OP:  | Descrição: 
+Notificação: 09-02-2023 18:02:53 | Número do titulo: 00034436831672629935 | Valor: 264.00 | Valor Pago: 264 | Código OP:  | Descrição: 
+Notificação: 09-02-2023 21:02:13 | Número do titulo: 00034436831672620013 | Valor: 105 | 
+        Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 09-02-2023 21:02:35 | Número do titulo: 00034436831672629946 | Valor: 264.00 | Valor Pago: 264 | Código OP:  | Descrição: 
+Notificação: 10-02-2023 04:02:28 | Número do titulo: 00034436831672605120 | Valor: 105.00 | Valor Pago: 106 | Código OP:  | Descrição: 
+Notificação: 10-02-2023 09:02:06 | Número do titulo: 00034436831672629979 | Valor: 105 | 
+        Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 11-02-2023 05:02:10 | Número do titulo: 00034436831672627746 | Valor: 75 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 11-02-2023 08:02:07 | Número do titulo: 00034436831672625239 | Valor: 315 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
+Notificação: 13-02-2023 15:02:13 | Número do titulo: 00034436831672610335 | Valor: 65 | Valor Pago:  | Código OP: 2 | Descrição: 2 - MOVIMENTO CARTORIO
