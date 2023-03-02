@@ -19,8 +19,7 @@
     <link rel="stylesheet" href="public/dist/css/AdminLTE.min.css">
 
     <!-- Google Font -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition login-page">
@@ -33,7 +32,7 @@
             </div>
             <form class="login-form" id="form-login" method="post">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="Digite seu e-mail" name="email" required />
+                    <input type="email" class="form-control" placeholder="Digite seu e-mail" name="email" required />
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -59,9 +58,6 @@
                     <!-- /.col -->
                 </div>
             </form>
-
-
-
             <b>
                 <center>© GISP v1.1.1 - Sistema de Gestão para seu Provedor e redes corporativas.</center>
             </b>
@@ -76,26 +72,26 @@
     <!-- Bootstrap 3.3.7 -->
     <script src="public/style/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
-    $('#form-login').submit(function() {
-        $('#aguarde').show().attr('disabled', true).text('Aguarde, Processando...');
-        $.ajax({
-            type: 'POST',
-            url: 'app/model/Auth.php',
-            data: $('#form-login').serialize(),
-            success: function(data) {
-                $('#retorno').show().fadeOut(6000).html(data);
-                $('#aguarde').show().attr('disabled', false).text('ENTRAR');
-            }
-        });
-        return false;
-    });
-
-    document.onmousedown = disableclick; /* Não permite clique com btn Direito do mouse */
-    function disableclick(event) {
-        if (event.button == 2) {
+        $('#form-login').submit(function() {
+            $('#aguarde').show().attr('disabled', true).text('Aguarde, Processando...');
+            $.ajax({
+                type: 'POST',
+                url: 'auth/auth.php',
+                data: $('#form-login').serialize(),
+                success: function(data) {
+                    $('#retorno').show().fadeOut(6000).html(data);
+                    $('#aguarde').show().attr('disabled', false).text('ENTRAR');
+                }
+            });
             return false;
+        });
+
+        document.onmousedown = disableclick; /* Não permite clique com btn Direito do mouse */
+        function disableclick(event) {
+            if (event.button == 2) {
+                return false;
+            }
         }
-    }
     </script>
 </body>
 

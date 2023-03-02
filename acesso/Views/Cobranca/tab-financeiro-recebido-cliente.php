@@ -17,7 +17,7 @@ if (isset($_SESSION['iduser']) != true || empty($_SESSION['iduser'])) {
 @$id = $_GET['id'];
 $query = mysqli_query($conexao, "SELECT cobranca.*, cliente.contato FROM cobranca 
 LEFT JOIN cliente ON cobranca.idcliente = cliente.id
-WHERE cobranca.idcliente='$id' AND cobranca.idempresa='$idempresa' AND cobranca.situacao='RECEBIDO' ORDER BY cobranca.vencimento DESC") or die(mysqli_error($conexao));
+WHERE cobranca.idcliente='$id' AND cobranca.idempresa='$idempresa' AND cobranca.situacao='RECEBIDO' OR AND cobranca.situacao='BAIXADO' ORDER BY cobranca.vencimento DESC") or die(mysqli_error($conexao));
 
 if (mysqli_num_rows($query) >= 1) {
     while ($dd = mysqli_fetch_array($query)) {

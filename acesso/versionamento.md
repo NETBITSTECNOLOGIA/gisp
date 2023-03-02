@@ -34,6 +34,7 @@
 
 ## data da atualização e correção:
 🕟🕟🕟🕟🕟🕟🕟🕟<<<<<<<---- ALTERANDO TODO PROJETO PARA OOP PHP
+---> TROCADO FORMA DE LOGIN admin e staff PARA EMAIL E SENHA SENDO OBRIGATORIO, 
 🕟1-SOLICITAR NUMERO DE NOTA AO INSERIR NOTA FISCAL (INDICANDO O TIPO DE NOTA DISPONIVEL AO ASSINANTE) NO FINANCEIRO DD ASSINANTE E EXIBIR TAMBEM NO APP
 🕟2-NOTIFICACAO Apos o cadastro ja pode cair numa tabela na area de notificação igual chamado na area de trabalha exibindo os dez ultimos pre cadastros realizados data de cadastro e situação dele. Assim vai mapeando em quem faze o casdastro.
 🕟3-DESBLOQUEIO DE CONFIANÇA: Adicionar o botao desbloqueio de confiança no financeiro e no app do assinante com o periodo de 3 dis uteis por mês. Ter um modal com o Aceite de termo em confianca deixando registrado e informações dentro do cadastro do assinante com data, hora e localização do desbloqueio, enviando um sms para o celular do cadastro apos confirmar o numero do cadastro e adicionando o codigo enviado via sistema sendo adicionado no termo e liberado. O sistema enviara o codigo do boleto e QRCODE do pix no email e sms cadastrado do cliente.
