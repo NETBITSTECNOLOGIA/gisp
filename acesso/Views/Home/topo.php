@@ -1,13 +1,25 @@
 <?php
 ob_start();
-session_start();
-include_once 'conexao.php';
-@$idempresa = $_SESSION['idempresa'];
-@$usercargo = $_SESSION['cargo'];
-@$iduser = $_SESSION['iduser'];
-if (isset($_SESSION['iduser']) != true) {
+session_start(['cookie_lifetime' => 86400,]);
+include_once '../../database/conexao.php';
+if (isset($_SESSION['gisp_iduser']) != true) {
   echo '<script>location.href="sair.php";</script>';
 }
+
+//components -> funções
+include_once '../../components/primeiro_nome.php';
+$primeironome = primeiroNome($_SESSION['gisp_usuario']);
+
+//sms mudar para componentes pasta sms
+include_once '../../controllers/sms/sms_controller.php';
+include_once '../../model/sms/sms_model.php';
+$smsController = new SmsController();
+$smsModel = new SmsModel();
+$smsController->setIdempresa($_SESSION['gisp_idempresa']);
+$totalsms = $smsModel->readDia($smsController);
+
+//$pessoa1=new Pessoa('Antenor',’26’);
+
 
 echo '
 <!DOCTYPE html>
@@ -21,62 +33,16 @@ echo '
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="shortcut icon" href="../../public/dist/img/icone.png">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../../pulic/style/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../public/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../pulic/style/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../public/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../../pulic/style/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../../public/bower_components/Ionicons/css/ionicons.min.css">
   <!--funcybox-->
-  <link rel="stylesheet" href="../../pulic/plugins/fancybox/dist/jquery.fancybox.css"/> 
+  <link rel="stylesheet" href="../../public/plugins/fancybox/dist/jquery.fancybox.css"/> 
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../pulic/dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="../../pulic/dist/css/skins/_all-skins.min.css">
-  <style>
-  .hidden {
-    display: none;
-  }
-
-  .label-dark {
-    background-color: #000
-}
-
-
-  a{
-    text-decoration: none !important;
-  }
-
-.divRetorno {
-    //position: absolute;
-    position: fixed;
-    z-index: 1 !important;
-    top: 10% !important;
-    right: 0.5%;
-    display: block;
-    /*flutuando*/
-    margin: 3px !important;
-}
-
-.button-canto-inferior{
-  position:fixed;
-  width:60px;
-  height:60px;
-  bottom:40px;
-  right:40px;
-  background-color:blue;
-  color:#FFF;
-  border-radius:50px;
-  text-align:center;
-  font-size:30px;
-  box-shadow: 1px 1px 2px #888;
-  z-index:1000;
-  text-decoration: none;
-}
-
-#map {
-  width: 100%;
-height: 800px; 
-}
-  </style>
+  <link rel="stylesheet" href="../../public/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../public/dist/css/skins/_all-skins.min.css">
 </head>
 <body class="hold-transition skin-red sidebar-mini">
 <div class="wrapper">
@@ -107,15 +73,11 @@ height: 800px;
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-clock-o"></i> ' . date('d-m-Y') . '
             </a>
-          </li>';
-$data = date('Y-m-d');
-$querysms = mysqli_query($conexao, "SELECT * FROM log_sms  WHERE idempresa='$idempresa' AND data='$data'") or die(mysqli_error($conexao));
-$totalSms = mysqli_num_rows($querysms);
-echo '
+          </li>
           <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">' . $totalSms . '</span>
+              <span class="label label-success">' . $totalsms . '</span>
             </a>
             <ul class="dropdown-menu hidden">
               <li class="header">You have 4 messages</li>
@@ -125,7 +87,7 @@ echo '
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="./dist/img/user.png" class="img-circle" alt="User Image">
+                        <img src="../../public/dist/img/user.png" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -138,7 +100,7 @@ echo '
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="./dist/img/user.png" class="img-circle" alt="User Image">
+                        <img src="../../public/dist/img/user.png" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         AdminLTE Design Team
@@ -154,33 +116,33 @@ echo '
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
           ';
-$queryc = mysqli_query($conexao, "SELECT chamado.*, cliente.nome FROM chamado
-    LEFT JOIN cliente ON chamado.idcliente = cliente.id WHERE chamado.idempresa='$idempresa' AND chamado.situacao <> 'SOLUCIONADO' GROUP BY nchamado") or die(mysqli_error($conexao));
-$totalchamados = mysqli_num_rows($queryc);
+//$queryc = mysqli_query($conexao, "SELECT chamado.*, cliente.nome FROM chamado
+//  LEFT JOIN cliente ON chamado.idcliente = cliente.id WHERE chamado.idempresa='$idempresa' AND chamado.situacao <> 'SOLUCIONADO' GROUP BY nchamado") or die(mysqli_error($conexao));
+//$totalchamados = mysqli_num_rows($queryc);
 
 echo '<li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
               <span class="label label-warning">';
-if ($totalchamados >= 1) {
+/* if ($totalchamados >= 1) {
   echo $totalchamados;
 } else {
   echo '0';
-}
+} */
 echo '</span>
             </a>
             <ul class="dropdown-menu">
               <li class="header">';
-if ($totalchamados >= 1) {
+/* if ($totalchamados >= 1) {
   echo $totalchamados;
 } else {
   echo '0';
-}
+} */
 echo ' <b class="text-blue">notificaçes</b></li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">';
-if ($totalchamados >= 1) {
+/* if ($totalchamados >= 1) {
   while ($ret = mysqli_fetch_array($queryc)) {
     echo '
                     <li><a href="exibir-chamado.php?id=' . $ret['id'] . '"><i class="fa fa-headphones text-blue"></i>' .
@@ -203,7 +165,7 @@ if ($totalchamados >= 1) {
 } else {
   echo '
                 <li><a href="#"><i class="fa fa-headphones"></i> Sem chamados abertos</a></li>';
-}
+} */
 echo '
                 </ul>
               </li>
@@ -211,9 +173,9 @@ echo '
             </ul>
           </li>
           <!-- Tasks: style can be found in dropdown.less -->';
-$hoje = date('Y-m-d');
+/* $hoje = date('Y-m-d');
 $queryr = mysqli_query($conexao, "SELECT valorpago FROM cobranca WHERE datapagamento='$hoje' AND idempresa='$idempresa' AND situacao='RECEBIDO'") or die(mysqli_error($conexao));
-$recebido = mysqli_num_rows($queryr);
+$recebido = mysqli_num_rows($queryr); */
 echo '
           <li class="dropdown tasks-menu">
             <a href="cobrancas.php" title="Recebido hoje">
@@ -295,7 +257,7 @@ echo '
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">';
-if (!empty($_SESSION['logomarcauser'])) {
+/* if (!empty($_SESSION['logomarcauser'])) {
   $filename = 'logocli/' . $_SESSION['logomarcauser'];
   if (file_exists($filename)) {
     echo '<img src="logocli/' . $_SESSION['logomarcauser'] . '" class="user-image" alt="User Image">';
@@ -311,13 +273,13 @@ echo '              <span class="hidden-xs">' . primeiroNome(@$_SESSION['usuario
               <!-- User image -->
               <li class="user-header">';
 if (!empty($_SESSION['logomarcauser'])) {
-  echo '<img src="logocli/' . $_SESSION['logomarcauser'] . '" class="img-circle" alt="User Image">';
+  echo '<img src="../../public/dist/img/logocli/' . $_SESSION['logomarcauser'] . '" class="img-circle" alt="User Image">';
 } else {
-  echo '<img src="dist/img/user.png" class="img-circle" alt="User Image">';
-}
+  echo '<img src="../../public/dist/img/user.png" class="img-circle" alt="User Image">';
+} */
 echo '
                 <p>
-                ' . primeiroNome($_SESSION['usuario']) . ' - ' . $_SESSION['cargo'] . '
+                ' . $primeironome . ' - ' . $_SESSION['gisp_cargo'] . '
                   <small>Seja Bem Vindo</small>
                 </p>
               </li>
@@ -325,12 +287,12 @@ echo '
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">';
-if ($_SESSION['tipouser'] == 'Admin') {
+if ($_SESSION['gisp_tipouser'] == 'Admin') {
   echo '
                   <a href="perfil-usuario.php" class="btn btn-default btn-flat">Perfil</a>';
 } else {
   echo '
-                    <a href="perfil-usuario-staff.php?id=' . $_SESSION['iduser'] . '" class="btn btn-default btn-flat">Perfil</a>';
+                    <a href="perfil-usuario-staff.php?id=' . $_SESSION['gisp_iduser'] . '" class="btn btn-default btn-flat">Perfil</a>';
 }
 echo '
                 </div>

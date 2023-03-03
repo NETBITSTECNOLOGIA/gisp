@@ -13,27 +13,29 @@ $userController->setEmail($_POST['email']);
 $userController->setSenha($_POST['senha']);
 $userController->setTipouser($_POST['tipo']);
 
+//var_dump($userModel->read($userController));
 
-if (empty($userModel->read($userController))) {
-	echo '<button class="alert alert-danger btn-block"><i class="fa fa-exclamation-triangle"></i> Usuário ou senha inválido!</button>';
+if ($userModel->read($userController) != []) {
+
+	// This sends a persistent cookie that lasts a day. (sessão durar apenas um dia)
+	session_start(['cookie_lifetime' => 86400,]);
+	foreach ($userModel->read($userController) as $key) {
+		$_SESSION['gisp_idempresa'] = $key['idempresa'];
+		$_SESSION['gisp_tipouser'] = $key['tipo'];
+		$_SESSION['gisp_cargo'] = $key['cargo'];
+		$_SESSION['gisp_iduser'] = $key['id'];
+		$_SESSION['gisp_usuario'] = $key['nome'];
+		$_SESSION['gisp_situacaouser'] = $key['situacao'];
+		$_SESSION['gisp_logomarcauser'] = $key['logomarca'];
+	}
+
+	$_SESSION['gisp_ip'] = $_SERVER['REMOTE_ADDR']; // pegar ip da maquina
+	$_SESSION['gisp_host'] = gethostbyaddr($_SERVER['REMOTE_ADDR']); //pega nome da maquina
+
+	echo "<script>location.href='../acesso/views/home/index.php';</script>";
 } else {
-	echo 'passou, criar sessão e mandar pra dashboar';
+
+	echo '<button class="alert alert-danger btn-block btn-flat"><i class="fa fa-exclamation-triangle"></i> Usuário ou senha inválido!</button>';
 }
 
-echo '<br />';
-/* 
-foreach ($userModel->read($userController) as $key) {
-	echo $key['email'] . ' - ' . $key['senha'] . '<hr>';
-}
- */
-
-/*
-$produtoModel->create($produto);
-
-// $produtoDao->delete(8);
-$produtoModel->read();
-foreach ($produtoModel->read() as $key) {
-	echo $key['id'] . ' - ' . $key['nome'] . ' - 
-    ' . $key['descricao'] . '<hr>';
-}
-*/
+//email é unico assim como user, email não é cryptografado apenas o user

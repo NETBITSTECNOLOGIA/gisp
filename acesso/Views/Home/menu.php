@@ -1,25 +1,25 @@
 <?php
-$idempresa = $_SESSION['idempresa'];
-$tipouser = $_SESSION['tipouser'];
-$iduser = $_SESSION['iduser'];
-echo'
+include_once '../../components/permissao.php';
+
+echo '
   <aside class="main-sidebar">
     <section class="sidebar">
       <div class="user-panel">
         <div class="pull-left image">';
-        if(!empty($_SESSION['logomarcauser'])){
-          $filename = 'logocli/'.$_SESSION['logomarcauser'];
-          if (file_exists($filename)) {
-            echo'<img src="logocli/'.$_SESSION['logomarcauser'].'" class="img-circle" alt="User Image">';
-          }else{
-            echo'<img src="dist/img/user.png" class="img-circle" alt="User Image">';
-          }
-        }else{
-          echo'<img src="dist/img/user.png" class="img-circle" alt="User Image">';
-        }echo'
+if (!empty($_SESSION['gisp_logomarcauser'])) {
+  $filename = '../../public/dist/img/logocli/' . $_SESSION['gisp_logomarcauser'];
+  if (file_exists($filename)) {
+    echo '<img src="../../public/dist/img/logocli/' . $_SESSION['gisp_logomarcauser'] . '" class="img-circle" alt="User Image">';
+  } else {
+    echo '<img src="../../public/dist/img/user.png" class="img-circle" alt="User Image">';
+  }
+} else {
+  echo '<img src="../../public/dist/img/user.png" class="img-circle" alt="User Image">';
+}
+echo '
         </div>
         <div class="pull-left info">
-          <p>'.primeiroNome(@$_SESSION['usuario']).'</p>
+          <p>' . $primeironome . '</p>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -35,12 +35,14 @@ echo'
             </span>
           </a>
           <ul class="treeview-menu">';
-            if(PermissaoCheck($idempresa,'clientes',$iduser)=='checked' OR $_SESSION['tipouser']=='Admin'){
-              echo'<li id="clientes-busca"><a href="clientes.php"><i class="fa fa-circle-o text-primary"></i>Listar</a></li>';}
-            if(PermissaoCheck($idempresa,'clientes-online',$iduser)=='checked' OR $_SESSION['tipouser']=='Admin'){
-            echo'<li id="clientes-online"><a href="clientes-online.php"><i class="fa fa-circle-o text-primary"></i>Online</a></li>';}
-            
-            echo'
+if (PermissaoCheck($_SESSION['gisp_idempresa'], 'clientes', $_SESSION['gisp_iduser']) == 'checked' or $_SESSION['gisp_tipouser'] == 'Admin') {
+  echo '<li id="clientes-busca"><a href="clientes.php"><i class="fa fa-circle-o text-primary"></i>Listar</a></li>';
+}
+if (PermissaoCheck($_SESSION['gisp_idempresa'], 'clientes-online', $_SESSION['gisp_iduser']) == 'checked' or $_SESSION['gisp_tipouser'] == 'Admin') {
+  echo '<li id="clientes-online"><a href="clientes-online.php"><i class="fa fa-circle-o text-primary"></i>Online</a></li>';
+}
+
+echo '
             <li id="clientes-pre"><a href="clientes-pre.php"><i class="fa fa-circle-o text-primary"></i>Pré-Cadastro</a></li>
           </ul>
         </li>
@@ -70,17 +72,20 @@ echo'
           </a>
           <ul class="treeview-menu">';
 
-          if(PermissaoCheck($idempresa,'cobrancas',$iduser)=='checked' OR $_SESSION['tipouser'] == 'Admin'){ 
-            echo'<li id="cobrancas"><a href="cobrancas.php"><i class="fa fa-circle-o text-primary"></i>Cobranças</a></li>'; }
+if (PermissaoCheck($_SESSION['gisp_idempresa'], 'cobrancas', $_SESSION['gisp_iduser']) == 'checked' or $_SESSION['gisp_tipouser'] == 'Admin') {
+  echo '<li id="cobrancas"><a href="cobrancas.php"><i class="fa fa-circle-o text-primary"></i>Cobranças</a></li>';
+}
 
-          if(PermissaoCheck($idempresa,'controle-caixa',$iduser)=='checked' OR $_SESSION['tipouser'] == 'Admin'){ 
-            echo'<li id="controle-caixa"><a href="controle-de-caixa.php"><i class="fa fa-circle-o text-primary"></i>Controle de caixa</a></li>'; }
+if (PermissaoCheck($_SESSION['gisp_idempresa'], 'controle-caixa', $_SESSION['gisp_iduser']) == 'checked' or $_SESSION['gisp_tipouser'] == 'Admin') {
+  echo '<li id="controle-caixa"><a href="controle-de-caixa.php"><i class="fa fa-circle-o text-primary"></i>Controle de caixa</a></li>';
+}
 
-          if(PermissaoCheck($idempresa,'gastos-mensais',$iduser)=='checked' OR $_SESSION['tipouser'] == 'Admin'){ 
-            echo'<li id="gastos-mensais"><a href="gastos-mensais.php"><i class="fa fa-circle-o text-primary"></i>Gastos mensais</a></li>'; }
+if (PermissaoCheck($_SESSION['gisp_idempresa'], 'gastos-mensais', $_SESSION['gisp_iduser']) == 'checked' or $_SESSION['gisp_tipouser'] == 'Admin') {
+  echo '<li id="gastos-mensais"><a href="gastos-mensais.php"><i class="fa fa-circle-o text-primary"></i>Gastos mensais</a></li>';
+}
 
-            
-            echo'    
+
+echo '    
           </ul>
         </li>        
         
@@ -93,28 +98,33 @@ echo'
           </a>
           <ul class="treeview-menu">';
 
-          if(PermissaoCheck($idempresa,'estoque',$iduser)=='checked' OR $_SESSION['tipouser'] == 'Admin'){ 
-            echo'<li id="controle-estoque"><a href="controle-estoque.php"><i class="fa fa-circle-o text-primary"></i>Estoque</a></li>'; }
+if (PermissaoCheck($_SESSION['gisp_idempresa'], 'estoque', $_SESSION['gisp_iduser']) == 'checked' or $_SESSION['gisp_tipouser'] == 'Admin') {
+  echo '<li id="controle-estoque"><a href="controle-estoque.php"><i class="fa fa-circle-o text-primary"></i>Estoque</a></li>';
+}
 
-          if(PermissaoCheck($idempresa,'conf-de-cobranca',$iduser)=='checked' OR $_SESSION['tipouser'] == 'Admin'){ 
-            echo'<li id="configuracoes"><a href="configuracoes-cobranca.php"><i class="fa fa-circle-o text-primary"></i>Parâmetros</a></li>'; }
+if (PermissaoCheck($_SESSION['gisp_idempresa'], 'conf-de-cobranca', $_SESSION['gisp_iduser']) == 'checked' or $_SESSION['gisp_tipouser'] == 'Admin') {
+  echo '<li id="configuracoes"><a href="configuracoes-cobranca.php"><i class="fa fa-circle-o text-primary"></i>Parâmetros</a></li>';
+}
 
-          if(PermissaoCheck($idempresa,'usuarios',$iduser)=='checked' OR $_SESSION['tipouser'] == 'Admin'){ 
-            echo'<li id="usuarios"><a href="usuarios.php"><i class="fa fa-circle-o text-primary"></i>Usuários</a></li>'; }
+if (PermissaoCheck($_SESSION['gisp_idempresa'], 'usuarios', $_SESSION['gisp_iduser']) == 'checked' or $_SESSION['gisp_tipouser'] == 'Admin') {
+  echo '<li id="usuarios"><a href="usuarios.php"><i class="fa fa-circle-o text-primary"></i>Usuários</a></li>';
+}
 
-          if(PermissaoCheck($idempresa,'servidor',$iduser)=='checked' OR $_SESSION['tipouser'] == 'Admin'){ 
-            echo'<li id="servidor"><a href="servidor.php"><i class="fa fa-circle-o text-primary"></i>Servidor</a></li>'; }
+if (PermissaoCheck($_SESSION['gisp_idempresa'], 'servidor', $_SESSION['gisp_iduser']) == 'checked' or $_SESSION['gisp_tipouser'] == 'Admin') {
+  echo '<li id="servidor"><a href="servidor.php"><i class="fa fa-circle-o text-primary"></i>Servidor</a></li>';
+}
 
-          if(PermissaoCheck($idempresa,'alertas',$iduser)=='checked' OR $_SESSION['tipouser'] == 'Admin'){ 
-            echo'<li id="alertas"><a href="alertas.php"><i class="fa fa-circle-o text-primary"></i>Alertas APP</a></li>'; }
-          echo'  
+if (PermissaoCheck($_SESSION['gisp_idempresa'], 'alertas', $_SESSION['gisp_iduser']) == 'checked' or $_SESSION['gisp_tipouser'] == 'Admin') {
+  echo '<li id="alertas"><a href="alertas.php"><i class="fa fa-circle-o text-primary"></i>Alertas APP</a></li>';
+}
+echo '  
           </ul>
         </li>
 
         <li id="chamados"><a href="chamados.php"><i class="fa fa-headphones"></i> <span>Chamados</span></a></li>
         <li><a href="verificar-pendente.php" target="_blank"><i class="fa fa-circle-o  text-primary"></i>Verificar pendentes</a></li>
-        <li><a href="verificar-vencidos-bloqueio.php?idempresa='.$_SESSION['idempresa'].'" target="_blank"><i class="fa fa-circle-o  text-primary"></i>Verificar e bloquear</a></li> 
-        <li><a href="desbloqueio-geral.php?idempresa='.$_SESSION['idempresa'].'" target="_blank"><i class="fa fa-circle-o  text-primary"></i>Desbloquear todos</a></li>        
+        <li><a href="verificar-vencidos-bloqueio.php?idempresa=' . $_SESSION['idempresa'] . '" target="_blank"><i class="fa fa-circle-o  text-primary"></i>Verificar e bloquear</a></li> 
+        <li><a href="desbloqueio-geral.php?idempresa=' . $_SESSION['idempresa'] . '" target="_blank"><i class="fa fa-circle-o  text-primary"></i>Desbloquear todos</a></li>        
 
         <li class="treeview mapa">
           <a href="#">
@@ -128,7 +138,8 @@ echo'
           </ul>
         </li>';
 
-        if($idempresa == 9999999999){echo'
+if ($_SESSION['gisp_idempresa'] == 9999999999) {
+  echo '
         <li class="treeview gestao">
           <a href="#">
             <i class="fa fa-gear"></i> <span>Gestão GISP</span>
@@ -148,9 +159,8 @@ echo'
             <li><a href="controledeversao.php"><i class="fa fa-circle-o text-warning"></i>Controle de Versão</a></li>
           </ul>
         </li>';
-        }
-        echo'
+}
+echo '
       </ul>
     </section>
   </aside>';
-  ?>

@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="public/dist/css/AdminLTE.min.css">
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition login-page">
@@ -51,6 +52,7 @@
                     </div>
                     <!-- /.col -->
                 </div>
+                <br />
                 <div class="row">
                     <div class="col-xs-12" id="retorno">
 
@@ -72,26 +74,26 @@
     <!-- Bootstrap 3.3.7 -->
     <script src="public/style/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
-        $('#form-login').submit(function() {
-            $('#aguarde').show().attr('disabled', true).text('Aguarde, Processando...');
-            $.ajax({
-                type: 'POST',
-                url: 'auth/auth.php',
-                data: $('#form-login').serialize(),
-                success: function(data) {
-                    $('#retorno').show().fadeOut(6000).html(data);
-                    $('#aguarde').show().attr('disabled', false).text('ENTRAR');
-                }
-            });
-            return false;
-        });
-
-        document.onmousedown = disableclick; /* Não permite clique com btn Direito do mouse */
-        function disableclick(event) {
-            if (event.button == 2) {
-                return false;
+    $('#form-login').submit(function() {
+        $('#aguarde').show().attr('disabled', true).text('Aguarde, Processando...');
+        $.ajax({
+            type: 'POST',
+            url: 'auth/auth.php',
+            data: $('#form-login').serialize(),
+            success: function(data) {
+                $('#retorno').show().fadeOut(6000).html(data);
+                $('#aguarde').show().attr('disabled', false).text('ENTRAR');
             }
+        });
+        return false;
+    });
+
+    document.onmousedown = disableclick; /* Não permite clique com btn Direito do mouse */
+    function disableclick(event) {
+        if (event.button == 2) {
+            return false;
         }
+    }
     </script>
 </body>
 

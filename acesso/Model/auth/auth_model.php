@@ -68,12 +68,6 @@ if ($tipo == 1) {
             echo '<button class="alert alert-danger btn-block"><i class="fa fa-exclamation-triangle"></i> Usuário ou senha inválido!</button>';
         }  //se $dados_uu for vazio mostrar o erro
         else {
-            $_SESSION['idempresa'] = $ddu['idempresa'];
-            if ($ddu['tipo'] != '') {
-                $_SESSION['tipouser'] = $ddu['tipo'];
-            } else {
-                $_SESSION['tipouser'] = 'comum';
-            }
 
             $_SESSION['tipouser'] = $ddu['tipo'];
             $_SESSION['cargo'] = $ddu['cargo'];

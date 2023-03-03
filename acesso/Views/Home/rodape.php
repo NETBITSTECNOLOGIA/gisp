@@ -60,11 +60,11 @@
   <!-- modal processando-->
 
   <!-- jQuery 3 -->
-  <script src="../../public/style/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../public/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
-  <script src="../../public/style/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../../public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <!-- FastClick -->
-  <script src="../../public/style/bower_components/fastclick/lib/fastclick.js"></script>
+  <script src="../../public/bower_components/fastclick/lib/fastclick.js"></script>
   <!-- AdminLTE App -->
   <script src="../../public/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
@@ -78,9 +78,9 @@
   <script src="../../public/dist/js/jquery.maskMoney.js"></script>
   <script src="../../public/dist/js/meusscripts.js"></script>
   <script>
-function alert0() {
-    alert('em desenvolvimento');
-}
+      function alert0() {
+          alert('em desenvolvimento');
+      }
   </script>
   </body>
 

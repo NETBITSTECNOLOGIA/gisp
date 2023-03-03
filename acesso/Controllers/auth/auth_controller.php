@@ -3,7 +3,7 @@
 class AuthController
 {
 
-    public $id, $user, $email, $senha, $tipouser, $cargo, $nome, $situacao, $logomarca, $ip, $hostname;
+    private $id, $user, $email, $senha, $tipouser, $cargo, $nome, $situacao, $logomarca, $ip, $hostname;
 
     //criar __constructor de receber request
     //valiar dados
@@ -52,7 +52,7 @@ class AuthController
 
         // Validate Email
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $this->email = md5($email);
+            $this->email = $email;
         } else {
             return "";
         }

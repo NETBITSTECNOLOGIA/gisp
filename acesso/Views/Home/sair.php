@@ -1,7 +1,4 @@
 <?php
-session_start();
-include_once 'conexao.php';
-include_once 'funcoes.php';
 $iduser = $_SESSION['iduser'];
 $usuario = $_SESSION['usuario']; //pega usuario que est� executando a a��o
 $ip = $_SERVER['REMOTE_ADDR']; // pegar ip da maquina
@@ -18,4 +15,4 @@ mysqli_query($conexao,"INSERT INTO logs
 session_destroy();
 session_unset();
 ob_end_clean(); // J� podemos encerrar o buffer e limpar tudo que h� nele
-echo "<script>location.href='login.php'</script>";
+echo "<script>location.href='../../index.php'</script>";
